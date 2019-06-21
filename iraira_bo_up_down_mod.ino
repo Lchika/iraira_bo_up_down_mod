@@ -59,6 +59,7 @@ void setup(void) {
   pinMode(PIN_LED_4, OUTPUT);
   pinMode(PIN_LED_5, OUTPUT);
   
+  //  LED制御を定時タスクとしてセット
   DebugPrint("set led control task");
   MsTimer2::set(INTARVAL_LED_FLASH, flash_led);
   /* ここまで各モジュール独自コード */
@@ -82,11 +83,11 @@ void loop(void) {
     //  前回不活性状態だった場合
     //  (このモジュールに到達したタイミング)
     if(!pre_active){
-      //  LED制御を定時タスクとしてセット
+      //  LED制御タスク開始
       DebugPrint("start led control task");
       MsTimer2::start();
       //  モータ正転開始
-      DebugPrint("start morot ccw");
+      DebugPrint("start motor ccw");
       rot_motor_ccw(MOTOR_POWER);
     }
   //  プレイヤーがこのモジュール上で遊んでいないとき
@@ -100,7 +101,7 @@ void loop(void) {
       //  LED全消灯
       init_led();
       //  モータ停止
-      DebugPrint("stop morot");
+      DebugPrint("stop motor");
       brake_motor();
     }
   }
