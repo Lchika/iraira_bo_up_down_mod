@@ -1,0 +1,349 @@
+\hypertarget{iraira__bo__up__down_8ino}{}\section{iraira\+\_\+bo\+\_\+up\+\_\+down.\+ino ファイル}
+\label{iraira__bo__up__down_8ino}\index{iraira\_bo\_up\_down.ino@{iraira\_bo\_up\_down.ino}}
+
+
+上下モジュールプログラム  
+
+
+{\ttfamily \#include $<$Ms\+Timer2.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}debug.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dsub\+\_\+slave\+\_\+communicator.\+hpp\char`\"{}}\newline
+iraira\+\_\+bo\+\_\+up\+\_\+down.\+ino の依存先関係図\+:
+% FIG 0
+\subsection*{マクロ定義}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{iraira__bo__up__down_8ino_a04bd3af8e0d78c7fb2a066085fb8ed19}{P\+I\+N\+\_\+\+G\+O\+A\+L\+\_\+\+S\+E\+N\+S\+OR}}~4
+\item 
+\#define \mbox{\hyperlink{iraira__bo__up__down_8ino_a4d3004c75c745c0b097de0dfea5e52de}{P\+I\+N\+\_\+\+H\+I\+T\+\_\+\+S\+E\+N\+S\+OR}}~5
+\item 
+\#define \mbox{\hyperlink{iraira__bo__up__down_8ino_a1865ea46eaf057c61c9661e6777e617b}{P\+I\+N\+\_\+\+D\+I\+P\+\_\+0}}~6
+\item 
+\#define \mbox{\hyperlink{iraira__bo__up__down_8ino_aad6f8823636ffe5bee61d57219a18f53}{P\+I\+N\+\_\+\+D\+I\+P\+\_\+1}}~7
+\item 
+\#define \mbox{\hyperlink{iraira__bo__up__down_8ino_af0b38ba5f8b9c96b3a1f03b00382739c}{P\+I\+N\+\_\+\+D\+I\+P\+\_\+2}}~8
+\item 
+\#define \mbox{\hyperlink{iraira__bo__up__down_8ino_a2d393a9dffb71739bd6aa98a0eb94e76}{P\+I\+N\+\_\+\+D\+I\+P\+\_\+3}}~9
+\item 
+\#define \mbox{\hyperlink{iraira__bo__up__down_8ino_a54103bbaebaebd27b24906bbefd36e18}{P\+I\+N\+\_\+\+A\+I\+N\+\_\+1}}~3
+\item 
+\#define \mbox{\hyperlink{iraira__bo__up__down_8ino_adf28ad9e2dd0fdecf6d50a65b63bff39}{P\+I\+N\+\_\+\+A\+I\+N\+\_\+2}}~10
+\item 
+\#define \mbox{\hyperlink{iraira__bo__up__down_8ino_af1ab79f4742613cc2f7f472d9d6c6570}{P\+I\+N\+\_\+\+L\+E\+D\+\_\+1}}~13
+\item 
+\#define \mbox{\hyperlink{iraira__bo__up__down_8ino_a0856e6b89a9e5cb8a8bbbf6ba9f7dccc}{P\+I\+N\+\_\+\+L\+E\+D\+\_\+2}}~14
+\item 
+\#define \mbox{\hyperlink{iraira__bo__up__down_8ino_afac55df431f2832acd5b0afa6f56cbc1}{P\+I\+N\+\_\+\+L\+E\+D\+\_\+3}}~15
+\item 
+\#define \mbox{\hyperlink{iraira__bo__up__down_8ino_a1fffd93d20b6fe777713bd58125e3e0b}{P\+I\+N\+\_\+\+L\+E\+D\+\_\+4}}~16
+\item 
+\#define \mbox{\hyperlink{iraira__bo__up__down_8ino_a6581c9faeb95d91f151a7fda5ff9d963}{P\+I\+N\+\_\+\+L\+E\+D\+\_\+5}}~17
+\item 
+\#define \mbox{\hyperlink{iraira__bo__up__down_8ino_aac54a414e7b061922e16432c9437e6b8}{M\+O\+T\+O\+R\+\_\+\+P\+O\+W\+ER}}~128
+\item 
+\#define \mbox{\hyperlink{iraira__bo__up__down_8ino_a6e499958b5cdf86ac62e20b22bbb4bcc}{I\+N\+T\+A\+R\+V\+A\+L\+\_\+\+L\+E\+D\+\_\+\+F\+L\+A\+SH}}~500
+\end{DoxyCompactItemize}
+\subsection*{関数}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{iraira__bo__up__down_8ino_a7dfd9b79bc5a37d7df40207afbc5431f}{setup}} (void)
+\begin{DoxyCompactList}\small\item\em セットアップ関数 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{iraira__bo__up__down_8ino_a0b33edabd7f1c4e4a0bf32c67269be2f}{loop}} (void)
+\begin{DoxyCompactList}\small\item\em ループ関数 \end{DoxyCompactList}\item 
+unsigned char \mbox{\hyperlink{iraira__bo__up__down_8ino_a77b0a767d95108a48a54b857588d2863}{Read\+Dip\+Switch}} (void)
+\begin{DoxyCompactList}\small\item\em D\+I\+Pスイッチ読み取り関数 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{iraira__bo__up__down_8ino_a0c28692fe5e9f44573ec307d7cae2d9b}{rot\+\_\+motor\+\_\+cw}} (int duty)
+\begin{DoxyCompactList}\small\item\em モータ正転関数 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{iraira__bo__up__down_8ino_a0a80149a1ef7c2030aba634830be590a}{rot\+\_\+motor\+\_\+ccw}} (int duty)
+\begin{DoxyCompactList}\small\item\em モータ逆転関数 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{iraira__bo__up__down_8ino_af7b0658dcbb1e0e8f14eb54b4edfcf72}{brake\+\_\+motor}} ()
+\begin{DoxyCompactList}\small\item\em ブレーキ関数 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{iraira__bo__up__down_8ino_a81f542f98f75dcfd71f410277a1cb3cf}{free\+\_\+motor}} ()
+\begin{DoxyCompactList}\small\item\em モータ解放関数 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{iraira__bo__up__down_8ino_a4858ffbdc03c7fb912c742beba95c65c}{flash\+\_\+led}} ()
+\begin{DoxyCompactList}\small\item\em L\+E\+D制御関数 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{変数}
+\begin{DoxyCompactItemize}
+\item 
+unsigned char \mbox{\hyperlink{iraira__bo__up__down_8ino_aeba7e981bd419ac0d5ca8e5e4198bf06}{slv\+\_\+address}}
+\item 
+\mbox{\hyperlink{class_dsub_slave_communicator}{Dsub\+Slave\+Communicator}} $\ast$ \mbox{\hyperlink{iraira__bo__up__down_8ino_adb2253a9db904473e0b317580548c627}{dsub\+Slave\+Communicator}} = N\+U\+LL
+\end{DoxyCompactItemize}
+
+
+\subsection{詳解}
+上下モジュールプログラム 
+
+\begin{DoxyAuthor}{著者}
+T.\+Suzuki K.\+Ohira 
+\end{DoxyAuthor}
+\begin{DoxyDate}{日付}
+2019/06/21 
+\end{DoxyDate}
+
+
+\subsection{マクロ定義詳解}
+\mbox{\Hypertarget{iraira__bo__up__down_8ino_a6e499958b5cdf86ac62e20b22bbb4bcc}\label{iraira__bo__up__down_8ino_a6e499958b5cdf86ac62e20b22bbb4bcc}} 
+\index{iraira\_bo\_up\_down.ino@{iraira\_bo\_up\_down.ino}!INTARVAL\_LED\_FLASH@{INTARVAL\_LED\_FLASH}}
+\index{INTARVAL\_LED\_FLASH@{INTARVAL\_LED\_FLASH}!iraira\_bo\_up\_down.ino@{iraira\_bo\_up\_down.ino}}
+\subsubsection{\texorpdfstring{INTARVAL\_LED\_FLASH}{INTARVAL\_LED\_FLASH}}
+{\footnotesize\ttfamily \#define I\+N\+T\+A\+R\+V\+A\+L\+\_\+\+L\+E\+D\+\_\+\+F\+L\+A\+SH~500}
+
+\mbox{\Hypertarget{iraira__bo__up__down_8ino_aac54a414e7b061922e16432c9437e6b8}\label{iraira__bo__up__down_8ino_aac54a414e7b061922e16432c9437e6b8}} 
+\index{iraira\_bo\_up\_down.ino@{iraira\_bo\_up\_down.ino}!MOTOR\_POWER@{MOTOR\_POWER}}
+\index{MOTOR\_POWER@{MOTOR\_POWER}!iraira\_bo\_up\_down.ino@{iraira\_bo\_up\_down.ino}}
+\subsubsection{\texorpdfstring{MOTOR\_POWER}{MOTOR\_POWER}}
+{\footnotesize\ttfamily \#define M\+O\+T\+O\+R\+\_\+\+P\+O\+W\+ER~128}
+
+\mbox{\Hypertarget{iraira__bo__up__down_8ino_a54103bbaebaebd27b24906bbefd36e18}\label{iraira__bo__up__down_8ino_a54103bbaebaebd27b24906bbefd36e18}} 
+\index{iraira\_bo\_up\_down.ino@{iraira\_bo\_up\_down.ino}!PIN\_AIN\_1@{PIN\_AIN\_1}}
+\index{PIN\_AIN\_1@{PIN\_AIN\_1}!iraira\_bo\_up\_down.ino@{iraira\_bo\_up\_down.ino}}
+\subsubsection{\texorpdfstring{PIN\_AIN\_1}{PIN\_AIN\_1}}
+{\footnotesize\ttfamily \#define P\+I\+N\+\_\+\+A\+I\+N\+\_\+1~3}
+
+\mbox{\Hypertarget{iraira__bo__up__down_8ino_adf28ad9e2dd0fdecf6d50a65b63bff39}\label{iraira__bo__up__down_8ino_adf28ad9e2dd0fdecf6d50a65b63bff39}} 
+\index{iraira\_bo\_up\_down.ino@{iraira\_bo\_up\_down.ino}!PIN\_AIN\_2@{PIN\_AIN\_2}}
+\index{PIN\_AIN\_2@{PIN\_AIN\_2}!iraira\_bo\_up\_down.ino@{iraira\_bo\_up\_down.ino}}
+\subsubsection{\texorpdfstring{PIN\_AIN\_2}{PIN\_AIN\_2}}
+{\footnotesize\ttfamily \#define P\+I\+N\+\_\+\+A\+I\+N\+\_\+2~10}
+
+\mbox{\Hypertarget{iraira__bo__up__down_8ino_a1865ea46eaf057c61c9661e6777e617b}\label{iraira__bo__up__down_8ino_a1865ea46eaf057c61c9661e6777e617b}} 
+\index{iraira\_bo\_up\_down.ino@{iraira\_bo\_up\_down.ino}!PIN\_DIP\_0@{PIN\_DIP\_0}}
+\index{PIN\_DIP\_0@{PIN\_DIP\_0}!iraira\_bo\_up\_down.ino@{iraira\_bo\_up\_down.ino}}
+\subsubsection{\texorpdfstring{PIN\_DIP\_0}{PIN\_DIP\_0}}
+{\footnotesize\ttfamily \#define P\+I\+N\+\_\+\+D\+I\+P\+\_\+0~6}
+
+\mbox{\Hypertarget{iraira__bo__up__down_8ino_aad6f8823636ffe5bee61d57219a18f53}\label{iraira__bo__up__down_8ino_aad6f8823636ffe5bee61d57219a18f53}} 
+\index{iraira\_bo\_up\_down.ino@{iraira\_bo\_up\_down.ino}!PIN\_DIP\_1@{PIN\_DIP\_1}}
+\index{PIN\_DIP\_1@{PIN\_DIP\_1}!iraira\_bo\_up\_down.ino@{iraira\_bo\_up\_down.ino}}
+\subsubsection{\texorpdfstring{PIN\_DIP\_1}{PIN\_DIP\_1}}
+{\footnotesize\ttfamily \#define P\+I\+N\+\_\+\+D\+I\+P\+\_\+1~7}
+
+\mbox{\Hypertarget{iraira__bo__up__down_8ino_af0b38ba5f8b9c96b3a1f03b00382739c}\label{iraira__bo__up__down_8ino_af0b38ba5f8b9c96b3a1f03b00382739c}} 
+\index{iraira\_bo\_up\_down.ino@{iraira\_bo\_up\_down.ino}!PIN\_DIP\_2@{PIN\_DIP\_2}}
+\index{PIN\_DIP\_2@{PIN\_DIP\_2}!iraira\_bo\_up\_down.ino@{iraira\_bo\_up\_down.ino}}
+\subsubsection{\texorpdfstring{PIN\_DIP\_2}{PIN\_DIP\_2}}
+{\footnotesize\ttfamily \#define P\+I\+N\+\_\+\+D\+I\+P\+\_\+2~8}
+
+\mbox{\Hypertarget{iraira__bo__up__down_8ino_a2d393a9dffb71739bd6aa98a0eb94e76}\label{iraira__bo__up__down_8ino_a2d393a9dffb71739bd6aa98a0eb94e76}} 
+\index{iraira\_bo\_up\_down.ino@{iraira\_bo\_up\_down.ino}!PIN\_DIP\_3@{PIN\_DIP\_3}}
+\index{PIN\_DIP\_3@{PIN\_DIP\_3}!iraira\_bo\_up\_down.ino@{iraira\_bo\_up\_down.ino}}
+\subsubsection{\texorpdfstring{PIN\_DIP\_3}{PIN\_DIP\_3}}
+{\footnotesize\ttfamily \#define P\+I\+N\+\_\+\+D\+I\+P\+\_\+3~9}
+
+\mbox{\Hypertarget{iraira__bo__up__down_8ino_a04bd3af8e0d78c7fb2a066085fb8ed19}\label{iraira__bo__up__down_8ino_a04bd3af8e0d78c7fb2a066085fb8ed19}} 
+\index{iraira\_bo\_up\_down.ino@{iraira\_bo\_up\_down.ino}!PIN\_GOAL\_SENSOR@{PIN\_GOAL\_SENSOR}}
+\index{PIN\_GOAL\_SENSOR@{PIN\_GOAL\_SENSOR}!iraira\_bo\_up\_down.ino@{iraira\_bo\_up\_down.ino}}
+\subsubsection{\texorpdfstring{PIN\_GOAL\_SENSOR}{PIN\_GOAL\_SENSOR}}
+{\footnotesize\ttfamily \#define P\+I\+N\+\_\+\+G\+O\+A\+L\+\_\+\+S\+E\+N\+S\+OR~4}
+
+\mbox{\Hypertarget{iraira__bo__up__down_8ino_a4d3004c75c745c0b097de0dfea5e52de}\label{iraira__bo__up__down_8ino_a4d3004c75c745c0b097de0dfea5e52de}} 
+\index{iraira\_bo\_up\_down.ino@{iraira\_bo\_up\_down.ino}!PIN\_HIT\_SENSOR@{PIN\_HIT\_SENSOR}}
+\index{PIN\_HIT\_SENSOR@{PIN\_HIT\_SENSOR}!iraira\_bo\_up\_down.ino@{iraira\_bo\_up\_down.ino}}
+\subsubsection{\texorpdfstring{PIN\_HIT\_SENSOR}{PIN\_HIT\_SENSOR}}
+{\footnotesize\ttfamily \#define P\+I\+N\+\_\+\+H\+I\+T\+\_\+\+S\+E\+N\+S\+OR~5}
+
+\mbox{\Hypertarget{iraira__bo__up__down_8ino_af1ab79f4742613cc2f7f472d9d6c6570}\label{iraira__bo__up__down_8ino_af1ab79f4742613cc2f7f472d9d6c6570}} 
+\index{iraira\_bo\_up\_down.ino@{iraira\_bo\_up\_down.ino}!PIN\_LED\_1@{PIN\_LED\_1}}
+\index{PIN\_LED\_1@{PIN\_LED\_1}!iraira\_bo\_up\_down.ino@{iraira\_bo\_up\_down.ino}}
+\subsubsection{\texorpdfstring{PIN\_LED\_1}{PIN\_LED\_1}}
+{\footnotesize\ttfamily \#define P\+I\+N\+\_\+\+L\+E\+D\+\_\+1~13}
+
+\mbox{\Hypertarget{iraira__bo__up__down_8ino_a0856e6b89a9e5cb8a8bbbf6ba9f7dccc}\label{iraira__bo__up__down_8ino_a0856e6b89a9e5cb8a8bbbf6ba9f7dccc}} 
+\index{iraira\_bo\_up\_down.ino@{iraira\_bo\_up\_down.ino}!PIN\_LED\_2@{PIN\_LED\_2}}
+\index{PIN\_LED\_2@{PIN\_LED\_2}!iraira\_bo\_up\_down.ino@{iraira\_bo\_up\_down.ino}}
+\subsubsection{\texorpdfstring{PIN\_LED\_2}{PIN\_LED\_2}}
+{\footnotesize\ttfamily \#define P\+I\+N\+\_\+\+L\+E\+D\+\_\+2~14}
+
+\mbox{\Hypertarget{iraira__bo__up__down_8ino_afac55df431f2832acd5b0afa6f56cbc1}\label{iraira__bo__up__down_8ino_afac55df431f2832acd5b0afa6f56cbc1}} 
+\index{iraira\_bo\_up\_down.ino@{iraira\_bo\_up\_down.ino}!PIN\_LED\_3@{PIN\_LED\_3}}
+\index{PIN\_LED\_3@{PIN\_LED\_3}!iraira\_bo\_up\_down.ino@{iraira\_bo\_up\_down.ino}}
+\subsubsection{\texorpdfstring{PIN\_LED\_3}{PIN\_LED\_3}}
+{\footnotesize\ttfamily \#define P\+I\+N\+\_\+\+L\+E\+D\+\_\+3~15}
+
+\mbox{\Hypertarget{iraira__bo__up__down_8ino_a1fffd93d20b6fe777713bd58125e3e0b}\label{iraira__bo__up__down_8ino_a1fffd93d20b6fe777713bd58125e3e0b}} 
+\index{iraira\_bo\_up\_down.ino@{iraira\_bo\_up\_down.ino}!PIN\_LED\_4@{PIN\_LED\_4}}
+\index{PIN\_LED\_4@{PIN\_LED\_4}!iraira\_bo\_up\_down.ino@{iraira\_bo\_up\_down.ino}}
+\subsubsection{\texorpdfstring{PIN\_LED\_4}{PIN\_LED\_4}}
+{\footnotesize\ttfamily \#define P\+I\+N\+\_\+\+L\+E\+D\+\_\+4~16}
+
+\mbox{\Hypertarget{iraira__bo__up__down_8ino_a6581c9faeb95d91f151a7fda5ff9d963}\label{iraira__bo__up__down_8ino_a6581c9faeb95d91f151a7fda5ff9d963}} 
+\index{iraira\_bo\_up\_down.ino@{iraira\_bo\_up\_down.ino}!PIN\_LED\_5@{PIN\_LED\_5}}
+\index{PIN\_LED\_5@{PIN\_LED\_5}!iraira\_bo\_up\_down.ino@{iraira\_bo\_up\_down.ino}}
+\subsubsection{\texorpdfstring{PIN\_LED\_5}{PIN\_LED\_5}}
+{\footnotesize\ttfamily \#define P\+I\+N\+\_\+\+L\+E\+D\+\_\+5~17}
+
+
+
+\subsection{関数詳解}
+\mbox{\Hypertarget{iraira__bo__up__down_8ino_af7b0658dcbb1e0e8f14eb54b4edfcf72}\label{iraira__bo__up__down_8ino_af7b0658dcbb1e0e8f14eb54b4edfcf72}} 
+\index{iraira\_bo\_up\_down.ino@{iraira\_bo\_up\_down.ino}!brake\_motor@{brake\_motor}}
+\index{brake\_motor@{brake\_motor}!iraira\_bo\_up\_down.ino@{iraira\_bo\_up\_down.ino}}
+\subsubsection{\texorpdfstring{brake\_motor()}{brake\_motor()}}
+{\footnotesize\ttfamily void brake\+\_\+motor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+ブレーキ関数 
+
+
+\begin{DoxyParams}{引数}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+None 
+\end{DoxyReturn}
+被呼び出し関係図\+:
+% FIG 1
+\mbox{\Hypertarget{iraira__bo__up__down_8ino_a4858ffbdc03c7fb912c742beba95c65c}\label{iraira__bo__up__down_8ino_a4858ffbdc03c7fb912c742beba95c65c}} 
+\index{iraira\_bo\_up\_down.ino@{iraira\_bo\_up\_down.ino}!flash\_led@{flash\_led}}
+\index{flash\_led@{flash\_led}!iraira\_bo\_up\_down.ino@{iraira\_bo\_up\_down.ino}}
+\subsubsection{\texorpdfstring{flash\_led()}{flash\_led()}}
+{\footnotesize\ttfamily void flash\+\_\+led (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+L\+E\+D制御関数 
+
+
+\begin{DoxyParams}{引数}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+None 
+\end{DoxyReturn}
+被呼び出し関係図\+:
+% FIG 2
+\mbox{\Hypertarget{iraira__bo__up__down_8ino_a81f542f98f75dcfd71f410277a1cb3cf}\label{iraira__bo__up__down_8ino_a81f542f98f75dcfd71f410277a1cb3cf}} 
+\index{iraira\_bo\_up\_down.ino@{iraira\_bo\_up\_down.ino}!free\_motor@{free\_motor}}
+\index{free\_motor@{free\_motor}!iraira\_bo\_up\_down.ino@{iraira\_bo\_up\_down.ino}}
+\subsubsection{\texorpdfstring{free\_motor()}{free\_motor()}}
+{\footnotesize\ttfamily void free\+\_\+motor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+モータ解放関数 
+
+
+\begin{DoxyParams}{引数}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{iraira__bo__up__down_8ino_a0b33edabd7f1c4e4a0bf32c67269be2f}\label{iraira__bo__up__down_8ino_a0b33edabd7f1c4e4a0bf32c67269be2f}} 
+\index{iraira\_bo\_up\_down.ino@{iraira\_bo\_up\_down.ino}!loop@{loop}}
+\index{loop@{loop}!iraira\_bo\_up\_down.ino@{iraira\_bo\_up\_down.ino}}
+\subsubsection{\texorpdfstring{loop()}{loop()}}
+{\footnotesize\ttfamily void loop (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+ループ関数 
+
+
+\begin{DoxyParams}{引数}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+None 
+\end{DoxyReturn}
+呼び出し関係図\+:
+% FIG 3
+\mbox{\Hypertarget{iraira__bo__up__down_8ino_a77b0a767d95108a48a54b857588d2863}\label{iraira__bo__up__down_8ino_a77b0a767d95108a48a54b857588d2863}} 
+\index{iraira\_bo\_up\_down.ino@{iraira\_bo\_up\_down.ino}!ReadDipSwitch@{ReadDipSwitch}}
+\index{ReadDipSwitch@{ReadDipSwitch}!iraira\_bo\_up\_down.ino@{iraira\_bo\_up\_down.ino}}
+\subsubsection{\texorpdfstring{ReadDipSwitch()}{ReadDipSwitch()}}
+{\footnotesize\ttfamily unsigned char Read\+Dip\+Switch (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+D\+I\+Pスイッチ読み取り関数 
+
+
+\begin{DoxyParams}{引数}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+unsigned char D\+I\+Pスイッチの値 
+\end{DoxyReturn}
+被呼び出し関係図\+:
+% FIG 4
+\mbox{\Hypertarget{iraira__bo__up__down_8ino_a0a80149a1ef7c2030aba634830be590a}\label{iraira__bo__up__down_8ino_a0a80149a1ef7c2030aba634830be590a}} 
+\index{iraira\_bo\_up\_down.ino@{iraira\_bo\_up\_down.ino}!rot\_motor\_ccw@{rot\_motor\_ccw}}
+\index{rot\_motor\_ccw@{rot\_motor\_ccw}!iraira\_bo\_up\_down.ino@{iraira\_bo\_up\_down.ino}}
+\subsubsection{\texorpdfstring{rot\_motor\_ccw()}{rot\_motor\_ccw()}}
+{\footnotesize\ttfamily void rot\+\_\+motor\+\_\+ccw (\begin{DoxyParamCaption}\item[{int}]{duty }\end{DoxyParamCaption})}
+
+
+
+モータ逆転関数 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em duty} & モータに印加する電圧の大きさ\mbox{[}0-\/255\mbox{]} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+None 
+\end{DoxyReturn}
+被呼び出し関係図\+:
+% FIG 5
+\mbox{\Hypertarget{iraira__bo__up__down_8ino_a0c28692fe5e9f44573ec307d7cae2d9b}\label{iraira__bo__up__down_8ino_a0c28692fe5e9f44573ec307d7cae2d9b}} 
+\index{iraira\_bo\_up\_down.ino@{iraira\_bo\_up\_down.ino}!rot\_motor\_cw@{rot\_motor\_cw}}
+\index{rot\_motor\_cw@{rot\_motor\_cw}!iraira\_bo\_up\_down.ino@{iraira\_bo\_up\_down.ino}}
+\subsubsection{\texorpdfstring{rot\_motor\_cw()}{rot\_motor\_cw()}}
+{\footnotesize\ttfamily void rot\+\_\+motor\+\_\+cw (\begin{DoxyParamCaption}\item[{int}]{duty }\end{DoxyParamCaption})}
+
+
+
+モータ正転関数 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\texttt{ in}}  & {\em duty} & モータに印加する電圧の大きさ\mbox{[}0-\/255\mbox{]} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{iraira__bo__up__down_8ino_a7dfd9b79bc5a37d7df40207afbc5431f}\label{iraira__bo__up__down_8ino_a7dfd9b79bc5a37d7df40207afbc5431f}} 
+\index{iraira\_bo\_up\_down.ino@{iraira\_bo\_up\_down.ino}!setup@{setup}}
+\index{setup@{setup}!iraira\_bo\_up\_down.ino@{iraira\_bo\_up\_down.ino}}
+\subsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily void setup (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+セットアップ関数 
+
+
+\begin{DoxyParams}{引数}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+None 
+\end{DoxyReturn}
+呼び出し関係図\+:
+% FIG 6
+
+
+\subsection{変数詳解}
+\mbox{\Hypertarget{iraira__bo__up__down_8ino_adb2253a9db904473e0b317580548c627}\label{iraira__bo__up__down_8ino_adb2253a9db904473e0b317580548c627}} 
+\index{iraira\_bo\_up\_down.ino@{iraira\_bo\_up\_down.ino}!dsubSlaveCommunicator@{dsubSlaveCommunicator}}
+\index{dsubSlaveCommunicator@{dsubSlaveCommunicator}!iraira\_bo\_up\_down.ino@{iraira\_bo\_up\_down.ino}}
+\subsubsection{\texorpdfstring{dsubSlaveCommunicator}{dsubSlaveCommunicator}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_dsub_slave_communicator}{Dsub\+Slave\+Communicator}}$\ast$ dsub\+Slave\+Communicator = N\+U\+LL}
+
+\mbox{\Hypertarget{iraira__bo__up__down_8ino_aeba7e981bd419ac0d5ca8e5e4198bf06}\label{iraira__bo__up__down_8ino_aeba7e981bd419ac0d5ca8e5e4198bf06}} 
+\index{iraira\_bo\_up\_down.ino@{iraira\_bo\_up\_down.ino}!slv\_address@{slv\_address}}
+\index{slv\_address@{slv\_address}!iraira\_bo\_up\_down.ino@{iraira\_bo\_up\_down.ino}}
+\subsubsection{\texorpdfstring{slv\_address}{slv\_address}}
+{\footnotesize\ttfamily unsigned char slv\+\_\+address}
+

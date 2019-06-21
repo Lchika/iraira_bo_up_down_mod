@@ -1,0 +1,5 @@
+<map id="setup" name="setup">
+<area shape="rect" id="node1" title="セットアップ関数" alt="" coords="5,31,60,57"/>
+<area shape="rect" id="node2" href="$iraira__bo__up__down_8ino.html#a77b0a767d95108a48a54b857588d2863" title="DIPスイッチ読み取り関数" alt="" coords="108,5,219,32"/>
+<area shape="rect" id="node3" href="$iraira__bo__up__down_8ino.html#a4858ffbdc03c7fb912c742beba95c65c" title="LED制御関数" alt="" coords="127,56,200,83"/>
+</map>

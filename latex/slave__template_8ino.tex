@@ -1,0 +1,118 @@
+\hypertarget{slave__template_8ino}{}\section{slave\+\_\+template.\+ino ファイル}
+\label{slave__template_8ino}\index{slave\_template.ino@{slave\_template.ino}}
+{\ttfamily \#include \char`\"{}debug.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dsub\+\_\+slave\+\_\+communicator.\+hpp\char`\"{}}\newline
+slave\+\_\+template.\+ino の依存先関係図\+:
+% FIG 0
+\subsection*{マクロ定義}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{slave__template_8ino_a04bd3af8e0d78c7fb2a066085fb8ed19}{P\+I\+N\+\_\+\+G\+O\+A\+L\+\_\+\+S\+E\+N\+S\+OR}}~4
+\item 
+\#define \mbox{\hyperlink{slave__template_8ino_a4d3004c75c745c0b097de0dfea5e52de}{P\+I\+N\+\_\+\+H\+I\+T\+\_\+\+S\+E\+N\+S\+OR}}~5
+\item 
+\#define \mbox{\hyperlink{slave__template_8ino_a1865ea46eaf057c61c9661e6777e617b}{P\+I\+N\+\_\+\+D\+I\+P\+\_\+0}}~6
+\item 
+\#define \mbox{\hyperlink{slave__template_8ino_aad6f8823636ffe5bee61d57219a18f53}{P\+I\+N\+\_\+\+D\+I\+P\+\_\+1}}~7
+\item 
+\#define \mbox{\hyperlink{slave__template_8ino_af0b38ba5f8b9c96b3a1f03b00382739c}{P\+I\+N\+\_\+\+D\+I\+P\+\_\+2}}~8
+\item 
+\#define \mbox{\hyperlink{slave__template_8ino_a2d393a9dffb71739bd6aa98a0eb94e76}{P\+I\+N\+\_\+\+D\+I\+P\+\_\+3}}~9
+\end{DoxyCompactItemize}
+\subsection*{関数}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{slave__template_8ino_a7dfd9b79bc5a37d7df40207afbc5431f}{setup}} (void)
+\item 
+void \mbox{\hyperlink{slave__template_8ino_a0b33edabd7f1c4e4a0bf32c67269be2f}{loop}} (void)
+\item 
+unsigned char \mbox{\hyperlink{slave__template_8ino_a77b0a767d95108a48a54b857588d2863}{Read\+Dip\+Switch}} (void)
+\end{DoxyCompactItemize}
+\subsection*{変数}
+\begin{DoxyCompactItemize}
+\item 
+unsigned char \mbox{\hyperlink{slave__template_8ino_aeba7e981bd419ac0d5ca8e5e4198bf06}{slv\+\_\+address}}
+\item 
+\mbox{\hyperlink{class_dsub_slave_communicator}{Dsub\+Slave\+Communicator}} $\ast$ \mbox{\hyperlink{slave__template_8ino_adb2253a9db904473e0b317580548c627}{dsub\+Slave\+Communicator}} = N\+U\+LL
+\end{DoxyCompactItemize}
+
+
+\subsection{マクロ定義詳解}
+\mbox{\Hypertarget{slave__template_8ino_a1865ea46eaf057c61c9661e6777e617b}\label{slave__template_8ino_a1865ea46eaf057c61c9661e6777e617b}} 
+\index{slave\_template.ino@{slave\_template.ino}!PIN\_DIP\_0@{PIN\_DIP\_0}}
+\index{PIN\_DIP\_0@{PIN\_DIP\_0}!slave\_template.ino@{slave\_template.ino}}
+\subsubsection{\texorpdfstring{PIN\_DIP\_0}{PIN\_DIP\_0}}
+{\footnotesize\ttfamily \#define P\+I\+N\+\_\+\+D\+I\+P\+\_\+0~6}
+
+\mbox{\Hypertarget{slave__template_8ino_aad6f8823636ffe5bee61d57219a18f53}\label{slave__template_8ino_aad6f8823636ffe5bee61d57219a18f53}} 
+\index{slave\_template.ino@{slave\_template.ino}!PIN\_DIP\_1@{PIN\_DIP\_1}}
+\index{PIN\_DIP\_1@{PIN\_DIP\_1}!slave\_template.ino@{slave\_template.ino}}
+\subsubsection{\texorpdfstring{PIN\_DIP\_1}{PIN\_DIP\_1}}
+{\footnotesize\ttfamily \#define P\+I\+N\+\_\+\+D\+I\+P\+\_\+1~7}
+
+\mbox{\Hypertarget{slave__template_8ino_af0b38ba5f8b9c96b3a1f03b00382739c}\label{slave__template_8ino_af0b38ba5f8b9c96b3a1f03b00382739c}} 
+\index{slave\_template.ino@{slave\_template.ino}!PIN\_DIP\_2@{PIN\_DIP\_2}}
+\index{PIN\_DIP\_2@{PIN\_DIP\_2}!slave\_template.ino@{slave\_template.ino}}
+\subsubsection{\texorpdfstring{PIN\_DIP\_2}{PIN\_DIP\_2}}
+{\footnotesize\ttfamily \#define P\+I\+N\+\_\+\+D\+I\+P\+\_\+2~8}
+
+\mbox{\Hypertarget{slave__template_8ino_a2d393a9dffb71739bd6aa98a0eb94e76}\label{slave__template_8ino_a2d393a9dffb71739bd6aa98a0eb94e76}} 
+\index{slave\_template.ino@{slave\_template.ino}!PIN\_DIP\_3@{PIN\_DIP\_3}}
+\index{PIN\_DIP\_3@{PIN\_DIP\_3}!slave\_template.ino@{slave\_template.ino}}
+\subsubsection{\texorpdfstring{PIN\_DIP\_3}{PIN\_DIP\_3}}
+{\footnotesize\ttfamily \#define P\+I\+N\+\_\+\+D\+I\+P\+\_\+3~9}
+
+\mbox{\Hypertarget{slave__template_8ino_a04bd3af8e0d78c7fb2a066085fb8ed19}\label{slave__template_8ino_a04bd3af8e0d78c7fb2a066085fb8ed19}} 
+\index{slave\_template.ino@{slave\_template.ino}!PIN\_GOAL\_SENSOR@{PIN\_GOAL\_SENSOR}}
+\index{PIN\_GOAL\_SENSOR@{PIN\_GOAL\_SENSOR}!slave\_template.ino@{slave\_template.ino}}
+\subsubsection{\texorpdfstring{PIN\_GOAL\_SENSOR}{PIN\_GOAL\_SENSOR}}
+{\footnotesize\ttfamily \#define P\+I\+N\+\_\+\+G\+O\+A\+L\+\_\+\+S\+E\+N\+S\+OR~4}
+
+\mbox{\Hypertarget{slave__template_8ino_a4d3004c75c745c0b097de0dfea5e52de}\label{slave__template_8ino_a4d3004c75c745c0b097de0dfea5e52de}} 
+\index{slave\_template.ino@{slave\_template.ino}!PIN\_HIT\_SENSOR@{PIN\_HIT\_SENSOR}}
+\index{PIN\_HIT\_SENSOR@{PIN\_HIT\_SENSOR}!slave\_template.ino@{slave\_template.ino}}
+\subsubsection{\texorpdfstring{PIN\_HIT\_SENSOR}{PIN\_HIT\_SENSOR}}
+{\footnotesize\ttfamily \#define P\+I\+N\+\_\+\+H\+I\+T\+\_\+\+S\+E\+N\+S\+OR~5}
+
+
+
+\subsection{関数詳解}
+\mbox{\Hypertarget{slave__template_8ino_a0b33edabd7f1c4e4a0bf32c67269be2f}\label{slave__template_8ino_a0b33edabd7f1c4e4a0bf32c67269be2f}} 
+\index{slave\_template.ino@{slave\_template.ino}!loop@{loop}}
+\index{loop@{loop}!slave\_template.ino@{slave\_template.ino}}
+\subsubsection{\texorpdfstring{loop()}{loop()}}
+{\footnotesize\ttfamily void loop (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+呼び出し関係図\+:
+% FIG 1
+\mbox{\Hypertarget{slave__template_8ino_a77b0a767d95108a48a54b857588d2863}\label{slave__template_8ino_a77b0a767d95108a48a54b857588d2863}} 
+\index{slave\_template.ino@{slave\_template.ino}!ReadDipSwitch@{ReadDipSwitch}}
+\index{ReadDipSwitch@{ReadDipSwitch}!slave\_template.ino@{slave\_template.ino}}
+\subsubsection{\texorpdfstring{ReadDipSwitch()}{ReadDipSwitch()}}
+{\footnotesize\ttfamily unsigned char Read\+Dip\+Switch (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+被呼び出し関係図\+:
+% FIG 2
+\mbox{\Hypertarget{slave__template_8ino_a7dfd9b79bc5a37d7df40207afbc5431f}\label{slave__template_8ino_a7dfd9b79bc5a37d7df40207afbc5431f}} 
+\index{slave\_template.ino@{slave\_template.ino}!setup@{setup}}
+\index{setup@{setup}!slave\_template.ino@{slave\_template.ino}}
+\subsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily void setup (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+呼び出し関係図\+:
+% FIG 3
+
+
+\subsection{変数詳解}
+\mbox{\Hypertarget{slave__template_8ino_adb2253a9db904473e0b317580548c627}\label{slave__template_8ino_adb2253a9db904473e0b317580548c627}} 
+\index{slave\_template.ino@{slave\_template.ino}!dsubSlaveCommunicator@{dsubSlaveCommunicator}}
+\index{dsubSlaveCommunicator@{dsubSlaveCommunicator}!slave\_template.ino@{slave\_template.ino}}
+\subsubsection{\texorpdfstring{dsubSlaveCommunicator}{dsubSlaveCommunicator}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_dsub_slave_communicator}{Dsub\+Slave\+Communicator}}$\ast$ dsub\+Slave\+Communicator = N\+U\+LL}
+
+\mbox{\Hypertarget{slave__template_8ino_aeba7e981bd419ac0d5ca8e5e4198bf06}\label{slave__template_8ino_aeba7e981bd419ac0d5ca8e5e4198bf06}} 
+\index{slave\_template.ino@{slave\_template.ino}!slv\_address@{slv\_address}}
+\index{slv\_address@{slv\_address}!slave\_template.ino@{slave\_template.ino}}
+\subsubsection{\texorpdfstring{slv\_address}{slv\_address}}
+{\footnotesize\ttfamily unsigned char slv\+\_\+address}
+

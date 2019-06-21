@@ -1,0 +1,99 @@
+\subsection*{概要}
+
+
+\begin{DoxyItemize}
+\item スレーブモジュールの共通部分だけ書いたコード
+\end{DoxyItemize}
+
+\subsection*{ピン関係}
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ ピン番号  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 役割   }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ ピン番号  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 役割   }\\\cline{1-2}
+\endhead
+4  &モジュール通過判定   \\\cline{1-2}
+5  &コース接触判定   \\\cline{1-2}
+6  &D\+I\+Pスイッチbit0   \\\cline{1-2}
+7  &D\+I\+Pスイッチbit1   \\\cline{1-2}
+8  &D\+I\+Pスイッチbit2   \\\cline{1-2}
+9  &D\+I\+Pスイッチbit3   \\\cline{1-2}
+A4(18)  &D-\/sub2番ピン(S\+DA)   \\\cline{1-2}
+A5(19)  &D-\/sub3番ピン(S\+CL)   \\\cline{1-2}
+G\+ND  &D-\/sub1番ピン   \\\cline{1-2}
+\end{longtabu}
+
+
+
+\begin{DoxyItemize}
+\item 上記ピン設定について\+D-\/sub関係以外は仮決め
+\end{DoxyItemize}
+
+\subsection*{D-\/sub関係}
+
+
+\begin{DoxyItemize}
+\item スレーブのアドレス指定：スタートモジュールに近い順に1,2,3...
+\item D-\/sub関係は\+I2C(2,3番ピン)のみに集約し、\+D-\/subの4,5番ピン(ゴール通知・コース接触通知)は不要となった
+\item ただし、上記対応により各モジュールの通過判定が必須になった
+\begin{DoxyItemize}
+\item どのモジュールと通信すればよいかわからないと\+I2\+C通信できないため
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+\subsection*{モジュール共通部分の処理について}
+
+
+\begin{DoxyItemize}
+\item D-\/sub関係の処理は{\ttfamily \mbox{\hyperlink{class_dsub_slave_communicator}{Dsub\+Slave\+Communicator}}}クラス内の処理で完結する
+\item {\ttfamily \mbox{\hyperlink{iraira__bo__up__down_8ino_a7dfd9b79bc5a37d7df40207afbc5431f}{setup()}}}内で{\ttfamily \mbox{\hyperlink{class_dsub_slave_communicator}{Dsub\+Slave\+Communicator}}}クラスのインスタンス{\ttfamily $\ast$dsub\+Slave\+Communicator}を生成する
+\item Dsub\+Slave\+Communicatorクラスは、マスタから通信開始通知を受け取ると、アクティブ状態になる
+\item アクティブ状態でなければ、モジュールは何もする必要がない
+\begin{DoxyItemize}
+\item {\ttfamily \mbox{\hyperlink{iraira__bo__up__down_8ino_a0b33edabd7f1c4e4a0bf32c67269be2f}{loop()}}}内の以下のコードでアクティブ状態かどうか確認している \`{}\`{}\`{}c++ if(\+Dsub\+Slave\+Communicator\+::is\+\_\+active())\{ \`{}\`{}\`{}
+\end{DoxyItemize}
+\item D-\/sub関係処理は以下の部分で処理している 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{c++\}}
+\DoxyCodeLine{ dsubSlaveCommunicator->handle\_dsub\_event();}
+\end{DoxyCode}
+
+\begin{DoxyItemize}
+\item コース接触判定、モジュール通過判定もここで行っている
+\item この関数は定期的に呼ぶ必要がある
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+\subsection*{コンパイル時の注意事項}
+
+
+\begin{DoxyItemize}
+\item 以下の外部ライブラリが必要
+\begin{DoxyItemize}
+\item \href{https://www.arduinolibraries.info/libraries/arduino-stl}{\texttt{ Arduino\+S\+TL}}
+\begin{DoxyItemize}
+\item c++の標準ライブラリが使えるようになる
+\begin{DoxyItemize}
+\item c++の標準ライブラリ(S\+TL)については\href{https://ja.wikipedia.org/wiki/Standard_Template_Library}{\texttt{ Wikipedia}}参照
+\end{DoxyItemize}
+\item インストール方法
+\begin{DoxyItemize}
+\item \href{https://www.arduinolibraries.info/libraries/arduino-stl}{\texttt{ こちらのページ}}から{\ttfamily Arduino\+S\+T\+L-\/1.\+1.\+0.\+zip}をダウンロード
+\item 解凍したフォルダを{\ttfamily C\+:\textbackslash{}Users\textbackslash{}your-\/username\textbackslash{}Documents\textbackslash{}Arduino\textbackslash{}libraries}(特に設定変えていなければここでよいはず)に置く
+\end{DoxyItemize}
+\end{DoxyItemize}
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+\subsection*{本プログラムのマニュアルについて}
+
+
+\begin{DoxyItemize}
+\item 本プログラムは\href{http://www.doxygen.nl/index.html}{\texttt{ Doxygen}}を使ってドキュメント化しています
+\item マニュアルを見るにはプログラムダウンロード後、html/index.htmlをブラウザで開いてください 
+\end{DoxyItemize}
