@@ -1,4 +1,4 @@
-# IrairaBo_slavetemplate
+# iraira_bo_up_down_mod
 
 ## 概要
 
@@ -18,8 +18,13 @@
 |A4(18)|D-sub2番ピン(SDA)|
 |A5(19)|D-sub3番ピン(SCL)|
 |GND|D-sub1番ピン|
-
-- 上記ピン設定についてD-sub関係以外は仮決め
+|3|モータ制御ピン1|
+|10|モータ制御ピン2|
+|13|LED1|
+|14|LED2|
+|15|LED3|
+|16|LED4|
+|17|LED5|
 
 ## D-sub関係
 
