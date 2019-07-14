@@ -135,17 +135,17 @@ bool DsubSlaveCommunicator::setup_i2c(unsigned char adress){
  * 参考:https://github.com/Lchika/IrairaBo_slavetemplate/blob/master/slave_template.ino
  */
 void DsubSlaveCommunicator::send_i2c_message(void){
-  DebugPrint("func start");
+  //DebugPrint("func start");
   if(!message_que.empty()){
     sprintf(dprint_buff, "send i2c [%d]", message_que.front());
     DebugPrint(dprint_buff);
     Wire.write(message_que.front());
     message_que.pop();
   }else{
-    DebugPrint("send i2c [EMPTY]");
+    //DebugPrint("send i2c [EMPTY]");
     Wire.write(I2C_EMPTY);
   }
-  DebugPrint("func end");
+  //DebugPrint("func end");
   return;
 }
 

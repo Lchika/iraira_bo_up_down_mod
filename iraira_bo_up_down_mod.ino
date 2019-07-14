@@ -9,8 +9,10 @@
 #include "debug.h"
 #include "dsub_slave_communicator.hpp"
 
-#define PIN_GOAL_SENSOR     4   //  通過/ゴールしたことを検知するセンサのピン
-#define PIN_HIT_SENSOR      5   //  当たったことを検知するセンサのピン
+//#define DEBUG_NOW_STATE
+
+#define PIN_GOAL_SENSOR     5   //  通過/ゴールしたことを検知するセンサのピン
+#define PIN_HIT_SENSOR      4   //  当たったことを検知するセンサのピン
 #define PIN_DIP_0           6   //  DIPスイッチbit0
 #define PIN_DIP_1           7   //  DIPスイッチbit1
 #define PIN_DIP_2           8   //  DIPスイッチbit2
@@ -73,8 +75,17 @@ void setup(void) {
 void loop(void) {
   /* ここから各スレーブ共通コード */
   static bool pre_active = false;
+//  デバッグ設定が有効の場合、シリアル入力からnow_stateを変更できるようにする
+#ifdef DEBUG_NOW_STATE
+  static bool now_active = false;
+  if (Serial.available() > 0){
+    Serial.read();
+    now_active = !now_active;
+  }
+#else
   bool now_active = DsubSlaveCommunicator::is_active();
-
+#endif
+  Serial.println(digitalRead(PIN_HIT_SENSOR));
   //  プレイヤーがこのモジュール上で遊んでいるとき
   if(now_active){
     //  D-sub関係イベント処理
@@ -88,7 +99,7 @@ void loop(void) {
       MsTimer2::start();
       //  モータ正転開始
       DebugPrint("start motor ccw");
-      rot_motor_ccw(MOTOR_POWER);
+      rot_motor_cw(MOTOR_POWER);
     }
   //  プレイヤーがこのモジュール上で遊んでいないとき
   }else{

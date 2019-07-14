@@ -7,7 +7,7 @@
 #define __DEBUG_H__
 
 //  デバッグ出力ON/OFF用マクロ
-#define DEBUG
+//#define DEBUG
 
 #ifdef DEBUG
     #define BeginDebugPrint()    Serial.begin( 9600 )
