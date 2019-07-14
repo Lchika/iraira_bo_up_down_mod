@@ -8,6 +8,7 @@ static const int I2C_DETECT_HIT     = 1;     // コース接触通知確認通�
 static const int I2C_DETECT_GOAL    = 2;     // コース通過通知確認通知
 static const int I2C_CHECK_CONNECT  = 3;     // 疎通確認
 static const int I2C_EMPTY          = 99;
+static constexpr int DELAY_EVENT_CHATTER = 50;
 
 bool DsubSlaveCommunicator::_active = false;
 char DsubSlaveCommunicator::dprint_buff[128];
@@ -92,13 +93,17 @@ bool DsubSlaveCommunicator::handle_dsub_event(void)
 
   //  コース接触検知したとき
   if(hitDetecter->is_event_detected()){
-    unsigned long now_time = millis();
-    if((now_time - last_hit_time) > INTERVAL_DETECT_HIT_MS){
-      DebugPrint("hit detected");
-      last_hit_time = millis();
-      message_que.push(I2C_DETECT_HIT);
-    }else{
-      DebugPrint("hit detected(ignore)")
+    //  チャタリング対応
+    delay(DELAY_EVENT_CHATTER);
+    if(hitDetecter->is_event_detected()){
+      unsigned long now_time = millis();
+      if((now_time - last_hit_time) > INTERVAL_DETECT_HIT_MS){
+        DebugPrint("hit detected");
+        last_hit_time = millis();
+        message_que.push(I2C_DETECT_HIT);
+      }else{
+        DebugPrint("hit detected(ignore)")
+      }
     }
   }
 
