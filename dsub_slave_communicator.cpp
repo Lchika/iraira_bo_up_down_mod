@@ -8,6 +8,7 @@ static const int I2C_DETECT_HIT     = 1;     // コース接触通知確認通�
 static const int I2C_DETECT_GOAL    = 2;     // コース通過通知確認通知
 static const int I2C_CHECK_CONNECT  = 3;     // 疎通確認
 static const int I2C_EMPTY          = 99;
+static constexpr int DELAY_EVENT_CHATTER = 50;
 
 bool DsubSlaveCommunicator::_active = false;
 char DsubSlaveCommunicator::dprint_buff[128];
@@ -92,13 +93,17 @@ bool DsubSlaveCommunicator::handle_dsub_event(void)
 
   //  コース接触検知したとき
   if(hitDetecter->is_event_detected()){
-    unsigned long now_time = millis();
-    if((now_time - last_hit_time) > INTERVAL_DETECT_HIT_MS){
-      DebugPrint("hit detected");
-      last_hit_time = millis();
-      message_que.push(I2C_DETECT_HIT);
-    }else{
-      DebugPrint("hit detected(ignore)")
+    //  チャタリング対応
+    delay(DELAY_EVENT_CHATTER);
+    if(hitDetecter->is_event_detected()){
+      unsigned long now_time = millis();
+      if((now_time - last_hit_time) > INTERVAL_DETECT_HIT_MS){
+        DebugPrint("hit detected");
+        last_hit_time = millis();
+        message_que.push(I2C_DETECT_HIT);
+      }else{
+        DebugPrint("hit detected(ignore)")
+      }
     }
   }
 
@@ -135,17 +140,17 @@ bool DsubSlaveCommunicator::setup_i2c(unsigned char adress){
  * 参考:https://github.com/Lchika/IrairaBo_slavetemplate/blob/master/slave_template.ino
  */
 void DsubSlaveCommunicator::send_i2c_message(void){
-  DebugPrint("func start");
+  //DebugPrint("func start");
   if(!message_que.empty()){
     sprintf(dprint_buff, "send i2c [%d]", message_que.front());
     DebugPrint(dprint_buff);
     Wire.write(message_que.front());
     message_que.pop();
   }else{
-    DebugPrint("send i2c [EMPTY]");
+    //DebugPrint("send i2c [EMPTY]");
     Wire.write(I2C_EMPTY);
   }
-  DebugPrint("func end");
+  //DebugPrint("func end");
   return;
 }
 
