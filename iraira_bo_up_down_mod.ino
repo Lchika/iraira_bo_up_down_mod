@@ -19,13 +19,13 @@
 #define PIN_DIP_3           9   //  DIPスイッチbit3
 #define PIN_AIN_1           3   //  モータ制御ピン1
 #define PIN_AIN_2           10  //  モータ制御ピン2
-#define PIN_LED_1           13  //  LED制御ピン1
-#define PIN_LED_2           14  //  LED制御ピン2
+#define PIN_LED_1           17  //  LED制御ピン1
+#define PIN_LED_2           16  //  LED制御ピン2
 #define PIN_LED_3           15  //  LED制御ピン3
-#define PIN_LED_4           16  //  LED制御ピン4
-#define PIN_LED_5           17  //  LED制御ピン5
+#define PIN_LED_4           14  //  LED制御ピン4
+#define PIN_LED_5           13  //  LED制御ピン5
 
-#define MOTOR_POWER         128 //  モータに印加する電圧の大きさ[0-255]
+#define MOTOR_POWER         90 //  モータに印加する電圧の大きさ[0-255]
 #define INTARVAL_LED_FLASH  500 //  点灯させるLEDを変化させる間隔[ms]
 
 /* 変数宣言 */
@@ -64,6 +64,10 @@ void setup(void) {
   //  LED制御を定時タスクとしてセット
   DebugPrint("set led control task");
   MsTimer2::set(INTARVAL_LED_FLASH, flash_led);
+  //  モータ正転開始
+  //  回転開始時にトルクが足りず、手で補助する必要があるためここで駆動する
+  DebugPrint("start motor ccw");
+  rot_motor_cw(MOTOR_POWER);
   /* ここまで各モジュール独自コード */
 }
 
@@ -85,7 +89,6 @@ void loop(void) {
 #else
   bool now_active = DsubSlaveCommunicator::is_active();
 #endif
-  Serial.println(digitalRead(PIN_HIT_SENSOR));
   //  プレイヤーがこのモジュール上で遊んでいるとき
   if(now_active){
     //  D-sub関係イベント処理
@@ -97,9 +100,6 @@ void loop(void) {
       //  LED制御タスク開始
       DebugPrint("start led control task");
       MsTimer2::start();
-      //  モータ正転開始
-      DebugPrint("start motor ccw");
-      rot_motor_cw(MOTOR_POWER);
     }
   //  プレイヤーがこのモジュール上で遊んでいないとき
   }else{
