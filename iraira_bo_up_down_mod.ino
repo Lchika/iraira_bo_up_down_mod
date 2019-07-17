@@ -111,9 +111,6 @@ void loop(void) {
       MsTimer2::stop();
       //  LED全消灯
       init_led();
-      //  モータ停止
-      DebugPrint("stop motor");
-      brake_motor();
     }
   }
   pre_active = now_active;
